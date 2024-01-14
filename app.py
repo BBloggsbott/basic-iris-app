@@ -7,7 +7,9 @@ model = joblib.load("model.joblib")
 
 @app.get("/healthz")
 async def predict():
-    pass
+    return {
+        "status": "healthy"
+    }
 
 @app.post("/predict")
 async def predict(sepal_length: float = 0.0, sepal_width: float = 0.0, petal_length: float = 0.0, petal_width: float = 0.0):
